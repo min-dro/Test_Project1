@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.kh</groupId>
+	<artifactId>myapp</artifactId>
+	
+	<!--
+		- Spring 프로젝트에서 JSP 를 쓸 경우 빌드는 무조건 .war 형식으로 해야한다!!
+		- 단, 개발 단계에서는 Jar 로 빌드하겠다고 셋팅하고 들어왔었음!! (개발 편의성을 위해)
+		- 우리는 빌드 단계에서 War 로 빌드하겠다고 셋팅만 살짝 추가하면 된다.
+		
+		* Maven 으로 빌드 시, 빌드된 war 파일은 프로젝트 폴더 내의 target 폴더에 만들어진다!!
+		- 이 때, 파일명은 artifactId + version + ".war" 로 잡힌다!!
+		- war 파일명이 추후 배포 시 context path 와 포트번호는 무효화 된다. (최종 파일명을 myapp.war 로 설정)
+	-->
+	<packaging>war</packaging> <!-- war 파일 형태로 빌드하겠다 -->
+	
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Test_Project1</name>
+	<description/>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- JSP 를 사용하기 위한 라이브러리 -->
+		<dependency>
+		    <groupId>org.apache.tomcat.embed</groupId>
+		    <artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
